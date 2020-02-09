@@ -1,0 +1,49 @@
+<!--[if lt IE 8]>
+    <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+<![endif]-->
+
+<div class="wrapper">
+  <div class="page-wrap">
+    <div class="app-sidebar colored">
+      <div class="sidebar-header">
+        <a class="header-brand" href="index.html">
+          <span class="text">Where am I on R6?</span>
+        </a>
+      </div>
+
+      <div class="sidebar-content ps ps--active-y">
+        <div class="nav-container">
+          <nav id="main-menu-navigation" class="navigation-main">
+            <div class="nav-lavel">Menu</div>
+            <div class="nav-item">
+              <a routerLinkActive="active" routerLink="/maps"><i class="ik ik-bar-chart-2"></i><span>Maps</span></a>
+            </div>
+            <div class="nav-item has-sub open">
+              <a ><i class="ik ik-layers"></i><span>Maps</span> <span class="badge badge-success">New</span></a>
+              <div class="submenu-content" style="">
+                <a routerLinkActive="active" routerLink="/kafe" class="menu-item is-shown">Kafe</a>
+                <a routerLinkActive="active" routerLink="/oregon" class="menu-item is-shown">Oregon</a>
+              </div>
+            </div>
+            <div class="nav-item">
+              <a routerLinkActive="active" routerLink="/faqs"><i class="ik ik-bar-chart-2"></i><span>FAQs</span></a>
+            </div>
+            <div class="nav-item">
+              <a routerLinkActive="active" routerLink="/contact-us"><i class="ik ik-bar-chart-2"></i><span>Contact Me</span></a>
+            </div>
+          </nav>
+        </div>
+      </div>
+    </div>
+    <div class="main-content">
+      <router-outlet></router-outlet>
+    </div>
+  
+    <footer class="footer">
+      <div class="w-100 clearfix">
+        <span class="text-center text-sm-left d-md-inline-block">Copyright © 2020 Where Am I on R6. All Rights Reserved.</span>
+      </div>
+    </footer>
+  </div>
+</div>
+
