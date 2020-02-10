@@ -1,8 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import {RepositoryService} from './_services/repository.service';
 import { LocationComponent } from './location/location.component';
 import { MapsComponent } from './maps/maps.component';
 import { FaqsComponent } from './faqs/faqs.component';
@@ -20,9 +22,10 @@ import { KafeComponent } from './kafe/kafe.component';
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [RepositoryService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

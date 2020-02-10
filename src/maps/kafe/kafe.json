@@ -1,0 +1,24 @@
+[{
+    "image":1,
+    "location": [{ "value":false, "description": "Reading Room"}]
+},
+{
+    "image":2,
+    "location": [{ "value":false, "description": "Pillars"}]
+},
+{
+    "image":3,
+    "location": [{"description": "Freezer"},{"description": "Bar Backstore"} ]
+},
+{
+    "image":4,
+    "location": [{"description": "Top of white"} ]
+},
+{
+    "image":5,
+    "location": [{"description": "Bar"} ]
+},
+{
+    "image":6,
+    "location": [{"description": "Cocktail bar"} ]
+}]

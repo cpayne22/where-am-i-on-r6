@@ -1,15 +1,19 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterViewInit } from '@angular/core';
 
 @Component({
   selector: 'app-maps',
-  templateUrl: './maps.component.html',
-  styleUrls: ['./maps.component.css']
+  templateUrl: './maps.component.html'
 })
-export class MapsComponent implements OnInit {
+export class MapsComponent implements OnInit, AfterViewInit {
 
   constructor() { }
-
+  loading = true;
   ngOnInit(): void {
+  }
+
+  ngAfterViewInit() {
+
+    this.loading = false;
   }
 
 }
