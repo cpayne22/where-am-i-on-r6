@@ -1,24 +1,52 @@
 [{
     "image":1,
-    "location": [{ "value":false, "description": "Reading Room"}]
+    "location": [{"description": "Reading Room"}]
 },
 {
     "image":2,
-    "location": [{ "value":false, "description": "Pillars"}]
+    "location": [{"description": "Parking"}, {"description": "Bakery Parking"}]
 },
 {
     "image":3,
-    "location": [{"description": "Freezer"},{"description": "Bar Backstore"} ]
+    "location": [{"description": "Bakery"} ]
 },
 {
     "image":4,
-    "location": [{"description": "Top of white"} ]
+    "location": [{"description": "Bakery"} ]
 },
 {
     "image":5,
-    "location": [{"description": "Bar"} ]
+    "location": [{"description": "Small Bakery"} ]
 },
 {
     "image":6,
-    "location": [{"description": "Cocktail bar"} ]
+    "location": [{"description": "Main"}, {"description": "Main Corridor"} ]
+},
+{
+    "image":7,
+    "location": [{"description": "----"} ]
+},
+{
+    "image":8,
+    "location": [{"description": "Main"}, {"description": "Main Corridor"} ]
+},
+{
+    "image":9,
+    "location": [{"description": "Bar"} ]
+},
+{
+    "image":10,
+    "location": [{"description": "VIP Corridor"}, {"description": "Bottom White Stairs"} ]
+},
+{
+    "image":11,
+    "location": [{"description": "White Stairs"} ]
+},
+{
+    "image":12,
+    "location": [{"description": "Reading Corridor"}, {"description": "Reading Room Corridor"} ]
+},
+{
+    "image":13,
+    "location": [{"description": "Laundry"}]
 }]

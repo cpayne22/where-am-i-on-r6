@@ -13,7 +13,7 @@ export class KafeComponent implements OnInit, AfterViewInit {
   qType= 2; // 1 - show the correct answer.  2 - continue, even if wrong answer
   state = 1;  // 1 - Q&A.  2 - See results
   map: any;
-  questions = 3;
+  questions = 6;
   answers = 4;
   pos = 0;
   isLoading = true;
