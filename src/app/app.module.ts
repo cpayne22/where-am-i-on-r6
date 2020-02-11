@@ -11,6 +11,8 @@ import { FaqsComponent } from './faqs/faqs.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { KafeComponent } from './kafe/kafe.component';
 
+import { StorageServiceModule } from 'ngx-webstorage-service';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,7 +25,8 @@ import { KafeComponent } from './kafe/kafe.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    StorageServiceModule 
   ],
   providers: [RepositoryService],
   bootstrap: [AppComponent]
