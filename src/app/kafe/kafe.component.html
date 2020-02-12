@@ -57,12 +57,12 @@
                     <div class="feeds-body">
                         <div class="form-group">
                             <label class="custom-control custom-radio">
-                                <input type="radio" class="custom-control-input" name="questionType" [checked]="qType===1" [value]="qType">
+                                <input type="radio" class="custom-control-input" name="questionType" [checked]="map.qType===1" [value]="qType" (change)="onQuestionTypeChange(1)">
                                 <span class="custom-control-label">&nbsp;Proceed when you've selected the correct answer
                                                                     </span>
                             </label>
                             <label class="custom-control custom-radio">
-                                <input type="radio" class="custom-control-input" name="questionType" [checked]="qType===2" [value]="qType">
+                                <input type="radio" class="custom-control-input" name="questionType" [checked]="map.qType===2" [value]="qType" (change)="onQuestionTypeChange(2)" >
                                 <span class="custom-control-label">&nbsp;
                                 Wait until the end to show the results
                                 </span>
@@ -81,7 +81,7 @@
             <div class="card-body">
                 <div class="row align-items-center">
                     <div class="col-lg-12 col-md-12">
-                        <img src='/maps/kafe/kafe{{current.image}}.png' class="img-fluid rounded" />
+                        <img src='/maps/kafe/kafe{{current.image}}_h.png' class="img-fluid rounded" />
                     </div>
                 </div>
             </div>
@@ -99,7 +99,7 @@
                     <div [ngClass]="{'alert alert-danger': showCorrect(p)}">
                         <label class="custom-control custom-radio">
                             <input type="radio" class="custom-control-input"
-                                [checked]="current.response===p.description" [value]="current.response"
+                                [checked]="current.response!==''&&current.response===p.description" [value]="current.response"
                                 (change)="onAnswer(p)" name="answers">
                             <span class="custom-control-label">&nbsp;{{p.description}}</span>
                         </label>
@@ -113,27 +113,47 @@
         </div>
     </div>
 </div>
-<div class="row" *ngIf="!isLoading&&state==2">
+<div class="row" *ngIf="showLargeImg==-1&&!isLoading&&state==2">
     <div class="col-md-4" *ngFor="let l of locations">
         <div class="card">
-            <div class="card-body feeds-widget">
+            <div class="card-body feeds-widget"  (click)="toggleShowLarge(l)">
                 <img src='/maps/kafe/kafe{{l.image}}.png' class="img-fluid rounded" />
                 <div class="feed-item">
                     <a>
                         <div class="feeds-left"><i class="ik ik-check-circle text-danger"
-                                [hidden]="l.description!==l.response.description"></i>
+                                [hidden]="!l.correct"></i>
                             <i class="ik ik-alert-circle text-warning"
-                                [hidden]="l.description===l.response.description"></i>
+                            [hidden]="l.correct"></i>
 
                         </div>
                         <div class="feeds-body">
-                            <h4 class="title text-danger">Correct: <small
-                                    class="float-right text-muted">{{l.description}}</small></h4>
-                            <small>Your answer: {{l.response}}</small>
+                            <h4 class="title text-danger">Correct: {{l.location[0].description}}</h4>
+                            <small [hidden]="l.correct">Your answer: {{l.response}}</small>
+                            {{l| json}}
                         </div>
                     </a>
                 </div>
             </div>
         </div>
     </div>
+</div>
+<div class="row" *ngIf="showLargeImg>-1&&!isLoading&&state==2">
+    <div class="col-md-12" (click)="toggleShowLarge()">
+        <div class="card">
+            <div class="card-header">
+                {{showLargeHeader}}
+            </div>
+            <div class="card-body">
+                <div class="row align-items-center">
+                    <div class="col-lg-12 col-md-12">
+                        <img src='/maps/kafe/kafe{{showLargeImg}}.png' class="img-fluid rounded" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    {{locations[showLargeImg] | json}}
+</div>
+<div class="row" *ngIf="!isLoading&&state==2">
+    <button class="btn btn-block btn-secondary" (click)="reset()">Try again</button>
 </div>

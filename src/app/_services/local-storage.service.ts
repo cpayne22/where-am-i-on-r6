@@ -1,23 +1,28 @@
 import { Inject, Injectable } from '@angular/core';
-import { LOCAL_STORAGE, StorageService } from 'ngx-webstorage-service';
 
 const STORAGE_KEY = 'WhereAmIOnR6';
 
 @Injectable()
+
+// taken from :  https://medium.com/@tiagovalverde/how-to-save-your-app-state-in-localstorage-with-angular-ce3f49362e31
+
 export class LocalStorageService {
      anotherTodolist = [];
-     constructor(@Inject(LOCAL_STORAGE) private storage: StorageService) { }
-     public storeOnLocalStorage(taskTitle: string): void {
-          
+     constructor() { }
+     public setLocalStorage(value: any): void {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(value));
+     }
+
+     public getLocalStorage(): any {
+
           // get array of tasks from local storage
-          const currentTodoList = this.storage.get(STORAGE_KEY) || [];
-          // push new task to array
-          currentTodoList.push({
-              title: taskTitle,
-              isChecked: false 
-          });
-          // insert updated array to local storage
-          this.storage.set(STORAGE_KEY, currentTodoList);
-          console.log(this.storage.get(STORAGE_KEY) || 'LocaL storage is empty');
+          var obj = {};
+          try {
+               obj =JSON.parse(localStorage.getItem(STORAGE_KEY));
+          }
+          catch{
+               obj = null;
+          }
+          return obj;
      }
 }

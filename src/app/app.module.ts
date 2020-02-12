@@ -11,7 +11,7 @@ import { FaqsComponent } from './faqs/faqs.component';
 import { ContactUsComponent } from './contact-us/contact-us.component';
 import { KafeComponent } from './kafe/kafe.component';
 
-import { StorageServiceModule } from 'ngx-webstorage-service';
+import { LocalStorageService } from './_services/local-storage.service';
 
 @NgModule({
   declarations: [
@@ -25,10 +25,9 @@ import { StorageServiceModule } from 'ngx-webstorage-service';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule,
-    StorageServiceModule 
+    HttpClientModule
   ],
-  providers: [RepositoryService],
+  providers: [RepositoryService, LocalStorageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
